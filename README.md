@@ -4,13 +4,13 @@ This repository contains the contracts that implements the credential tree for a
 
 You can read more about how it works in the [credential transparency](https://github.com/relab/credential-transparency-papers/tree/master/digital-diploma) paper repository.
 
-# Installing Dependencies
+## Installing Dependencies
 
 ```
 npm run install
 ```
 
-# Running Tests
+## Running Tests
 
 Run ethereum ganache testnet:
 ```
@@ -22,13 +22,13 @@ Run the tests:
 npm run test
 ```
 
-# Generating the Go Bindings
+## Generating the Go Bindings
 
 ```
 npm run abigen
 ```
 
-# Deploying a New Release of the Go Bindings
+## Deploying a New Release of the Go Bindings
 
 ```
 npm run release
