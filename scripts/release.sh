@@ -20,7 +20,7 @@ function release() {
   check_dependencies
 
   # Format geth_version semver string for go get.
-  local geth_version="v$( echo ${GETH_VERSION:=1.10.1-stable} | cut -d "-" -f1 )"
+  local geth_version="v$( echo ${GETH_VERSION:=1.9.24} | cut -d "-" -f1 )"
 
   echo "creating new release"
   echo "$(go version)"
@@ -60,24 +60,35 @@ function release() {
   major_version=$((major_version + 1))
 
   echo "incrementing bindings version to v${major_version}"
+  # Verstion 1 is a special case.
+  if [ "${major_version}" -eq 1 ]; then
+    # Copy the code into the root of the repo.
+    cp -R "$bindings_dir"/* "${release_repo_dir}"
 
-  # Create a new ../v<major_version> directory as a copy of the abigen bindings.
-  new_version_dir="${release_repo_dir}/v${major_version}"
-  cp -R "$bindings_dir" "${new_version_dir}"
+    echo "fetching 'go-ethereum@${geth_version}' on base module"
+    GO111MODULE=on go get "github.com/ethereum/go-ethereum@${geth_version}"
+  else
+    # Create a new ../v<major_version> directory as a copy of the abigen bindings.
+    local new_version_dir="${release_repo_dir}/v${major_version}"
+    cp -R "$bindings_dir" "${new_version_dir}"
 
-  # Run go mod init in the new module.
-  cd "${new_version_dir}"
+    # Run go mod init in the new module.
+    cd "${new_version_dir}"
 
-  echo "init go module in ${new_version_dir}"
-  go mod init "github.com/relab/bbchain-bindings/v${major_version}"
+    echo "init go module in ${new_version_dir}"
+    go mod init "github.com/relab/bbchain-bindings/v${major_version}"
 
-  echo "fetching 'go-ethereum@${geth_version}' on base ${new_version_dir}"
-  GO111MODULE=on go get "github.com/ethereum/go-ethereum@${geth_version}"
+    echo "fetching 'go-ethereum@${geth_version}' on base ${new_version_dir}"
+    GO111MODULE=on go get "github.com/ethereum/go-ethereum@${geth_version}"
 
+    go mod tidy
+  fi
+
+  # Run go mod tidy at the top level
+  cd "${release_repo_dir}"
   go mod tidy
 
   # Commit and push to the repo.
-  cd "${release_repo_dir}"
   git add . 
   git commit --message="Release v${major_version}.0.0"
   git tag "v${major_version}.0.0"

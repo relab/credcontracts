@@ -12,6 +12,7 @@ function generate_bindings() {
   local base_path=${1}
   local contracts=${@:2}
   local build_dir=${PROJECT_DIR}/build
+  mkdir -p "${build_dir}"
   for contract in ${contracts}
   do
     local contract_path=${base_path}
@@ -19,6 +20,7 @@ function generate_bindings() {
     local package=$(echo ${contract} | tr '[:upper:]' '[:lower:]')
     case "${contract}" in
       "Notary") contract_path="${contract_path}/notary";;
+      "Node") contract_path="${contract_path}/node";;
       "CredentialSum") 
         contract_path="${contract_path}/aggregator"
         package="aggregator"

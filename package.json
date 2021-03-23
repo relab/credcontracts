@@ -12,7 +12,7 @@
     "migrate": "truffle migrate --reset",
     "migrate:ganache": "truffle migrate --reset --network ganache",
     "generate": "node scripts/parseArtifact.js",
-    "abigen": "./scripts/gen.sh --libs Notary CredentialSum && ./scripts/gen.sh  Course Faculty",
+    "abigen": "./scripts/gen.sh --libs Notary CredentialSum Node Owners && ./scripts/gen.sh Course Faculty",
     "release": "./scripts/release.sh",
     "clean": "rm -rf ./build",
     "ganache-cli": "ganache-cli --deterministic --networkId 5777 --host 127.0.0.1 --port 7545",

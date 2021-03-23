@@ -10,6 +10,12 @@ You can read more about how it works in the [credential transparency](https://gi
 npm run install
 ```
 
+## Compile the contracts
+
+```
+npm run compile
+```
+
 ## Running Tests
 
 Run ethereum ganache testnet:
