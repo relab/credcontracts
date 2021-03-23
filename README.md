@@ -12,7 +12,7 @@ npm run install
 
 # Run tests
 
-Run a ethereum testnet client:
+Run a ethereum ganache testnet:
 ```
 npm run test:ganache
 ```
