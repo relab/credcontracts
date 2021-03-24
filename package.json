@@ -27,7 +27,8 @@
   "author": "Rodrigo Q. Saramago",
   "license": "MIT",
   "dependencies": {
-    "ct-eth": "git+ssh://git@github.com:relab/ct-eth.git"
+    "ct-eth": "git+ssh://git@github.com:relab/ct-eth.git",
+    "js-sha3": "0.8.0"
   },
   "devDependencies": {
     "@openzeppelin/contracts": "^3.2.0",

@@ -37,10 +37,21 @@ function generate_bindings() {
       --optimize --optimize-runs 200 --evm-version istanbul\
       ${contract_path}/${contract}.sol > "${compiled_json}"
 
-    # generate the bindings
     mkdir -p "${output_dir}"
-    abigen -pkg ${package}\
-      -out "${output_dir}/${package}.go"\
+    # replace library hash by the library name
+    if [ ${package} == "course" ] ||
+       [ ${package} == "faculty" ] ||
+       [ ${package} == "node" ]; then
+      libs=( "${PROJECT_DIR}/node_modules/ct-eth/contracts/notary/Notary.sol:Notary"
+             "${PROJECT_DIR}/node_modules/ct-eth/contracts/aggregator/CredentialSum.sol:CredentialSum" )
+      local parsed_json=${build_dir}/parsed_${package}.json
+      node ${PROJECT_DIR}/scripts/code.go.js ${package} "${compiled_json}" "${contract_path}/${contract}.sol" ${contract} ${libs[*]} > "${output_dir}/code.go"
+    fi
+
+    # generate the bindings
+    abigen\
+      --pkg ${package}\
+      --out "${output_dir}/${package}.go"\
       --combined-json "${compiled_json}"
 
     rm "${compiled_json}"
