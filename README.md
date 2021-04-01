@@ -7,7 +7,7 @@ You can read more about how it works in the [credential transparency](https://gi
 ## Installing Dependencies
 
 ```
-npm run install
+npm install
 ```
 
 ## Compile the contracts
@@ -20,12 +20,12 @@ npm run compile
 
 Run ethereum ganache testnet:
 ```
-npm run test:ganache
+npm run ganache-cli
 ```
 
 Run the tests:
 ```
-npm run test
+npm run test:ganache
 ```
 
 ## Generating the Go Bindings
