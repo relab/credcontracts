@@ -28,7 +28,18 @@ Run the tests:
 npm run test:ganache
 ```
 
+## Generating the abi and bin files (deprecated)
+
+To extract the abi and bin files from the compiled contracts you can use the following command:
+```
+npm run generate
+```
+
+The files will be created under the `build/abi` and `build/bin` folder for each compiled contract.
+
 ## Generating the Go Bindings
+
+This command generates the go bindings for all contracts under the folder `build/bindings`.
 
 ```
 npm run abigen
