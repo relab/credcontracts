@@ -1,0 +1,33 @@
+{
+  "name": "course",
+  "version": "0.0.1",
+  "description": "Course DApp js frontend",
+  "directories": {
+    "test": "test"
+  },
+  "files": [
+    "/test"
+  ],
+  "scripts": {
+    "build": "webpack",
+    "dev": "webpack-dev-server"
+  },
+  "author": "Rodrigo Q. Saramago",
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "@metamask/detect-provider": "^1.2.0",
+    "jquery": "^3.5.1",
+    "solc": "^0.8.4",
+    "web3": "^1.2.11",
+    "web3-utils": "^1.2.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "babel-loader": "^8.1.0",
+    "bootstrap": "^4.5.1",
+    "copy-webpack-plugin": "^6.0.3",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}

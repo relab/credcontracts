@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>BBChain Dapp</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <button class="btn btn-primary mb-2" onclick="App.enableMetamask()">Connect Metamask</button>
+
+        <h1 class="text-center">Ethereum Accounts</h1>
+        <div id="accounts">
+            <ul class="list-group" id="accountList">
+                <li class="list-group-item d-flex justify-content-between align-items-center"
+                    style="background-color:rgb(236, 236, 236)">
+                    <span>Account</span>
+                    <span>Balance</span>
+                </li>
+            </ul>
+        </div>
+        <div class="app">
+            <h1 class="text-center mt-2">BBChain DApp</h1>
+            <div class="col-md-auto">
+                <p id="status"></p>
+            </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-primary mb-2" onclick="App.deployNotary()">Deploy Notary</button>
+                <button class="btn btn-primary mb-2" onclick="App.deployAggregator()">Deploy Aggregator</button>
+                <button class="btn btn-primary mb-2" onclick="App.deployCourse()">Deploy Course</button>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

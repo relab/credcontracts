@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Course Dapp</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Ethereum Accounts</h1>
+        <div id="accounts">
+            <ul class="list-group" id="accountList">
+                <li class="list-group-item d-flex justify-content-between align-items-center"
+                    style="background-color:rgb(236, 236, 236)">
+                    <span>Account</span>
+                    <span>Balance</span>
+                </li>
+            </ul>
+        </div>
+        <div class="app">
+            <h1 class="text-center mt-2">Wallet DApp</h1>
+            <div class="col-md-auto">
+                <p>You have <strong id="walletBalance">loading...</strong> wei in your wallet.</p>
+            </div>
+            <div class="form-inline">
+                <legend>Deposit</legend>
+                <div class="form-group mx-md-3 mb-2">
+                    <input type="text" id="depositAmount" placeholder="amount in wei">
+                </div>
+                <button class="btn btn-primary mb-2" onclick="App.deposit()">Submit</button>
+            </div>
+
+            <div class="form-inline">
+                <legend>Withdraw</legend>
+                <div class="form-group mx-md-3 mb-2">
+                    <input type="text" id="withdrawAmount" placeholder="amount in wei">
+                </div>
+                <button class="btn btn-primary mb-2" onclick="App.withdraw()">Submit</button>
+            </div>
+
+            <div class="form-inline">
+                <legend>Transfer</legend>
+                <div class="form-group mx-md-3 mb-2">
+                    <input type="text" id="transferAmount" placeholder="amount in wei">
+                </div>
+                <div class="form-group mx-md-3 mb-2">
+                    <input type="text" id="transferRecipient" placeholder="address of the recipient" />
+                </div>
+                <button class="btn btn-primary mb-2" onclick="App.transfer()">Submit</button>
+            </div>
+        </div>
+
+        <p id="status"></p>
+
+        <p>
+            <strong>Note:</strong> 1 ether == 1000000000000000000 wei
+        </p>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
