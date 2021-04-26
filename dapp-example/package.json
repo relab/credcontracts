@@ -1,7 +1,7 @@
 {
-  "name": "course",
+  "name": "bbchain-dapp",
   "version": "0.0.1",
-  "description": "Course DApp js frontend",
+  "description": "BBChain DApp js example",
   "directories": {
     "test": "test"
   },
