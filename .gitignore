@@ -3,6 +3,7 @@
 
 # truffle build directory
 build/
+dist/
 
 # Dependency directory
 node_modules/
