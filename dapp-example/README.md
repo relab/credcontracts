@@ -20,18 +20,25 @@ You must have an Ethereum node running to connect your application.
 By default the example application attempts to connect to a metamask instance and you can also configure a ganache at `http://127.0.0.1:8545`, and start the `ganache-cli` by running the npm command from the root directory of [bbchain-contracts](../README.md).
 You can also use an official Ethereum Testnet like [Ropsten](https://ropsten.etherscan.io/) if you want, but you will be required to fund some accounts using a [faucet](https://faucet.ropsten.be/).
 
-1. Running the development blockchain environment from the `bbchain-contracts`
+1. Compiling the contracts.
+
+From the `bbchain-contracts` directory run:
+```
+npm run compile
+```
+
+2. Running the development blockchain environment.
    
 Open on terminal and go to the `bbchain-contracts` directory and run:
 ```
 npm run develop
 ```
 
-2. Run the web front-end server:
+3. Run the web front-end server:
 
 Open another terminal and from the `dapp-example` run:
 ```
 npm run dev
 ```
 
-3. Open your web browser at: http://localhost:8080
+4. Open your web browser at: http://localhost:8080
