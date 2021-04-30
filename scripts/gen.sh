@@ -7,6 +7,7 @@
 
 SCRIPT_DIR="$( cd "$( dirname "$0" )" >/dev/null 2>&1 && pwd )"
 PROJECT_DIR=$( dirname "$SCRIPT_DIR" )
+EVM_VERSION=istanbul
 
 function generate_bindings() {
   local base_path=${1}
@@ -34,7 +35,7 @@ function generate_bindings() {
       ct-eth=${PROJECT_DIR}/node_modules/ct-eth\
       --allow-paths node_modules/ct-eth/contracts/,\
       --combined-json=bin,abi,userdoc,devdoc,metadata,bin-runtime\
-      --optimize --optimize-runs 200 --evm-version istanbul\
+      --optimize --optimize-runs 200 --evm-version ${EVM_VERSION}\
       ${contract_path}/${contract}.sol > "${compiled_json}"
 
     mkdir -p "${output_dir}"

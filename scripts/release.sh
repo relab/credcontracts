@@ -20,7 +20,7 @@ function release() {
   check_dependencies
 
   # Format geth_version semver string for go get.
-  local geth_version="v$( echo ${GETH_VERSION:=1.9.24} | cut -d "-" -f1 )"
+  local geth_version="v$( echo ${GETH_VERSION:=1.10.2} | cut -d "-" -f1 )"
 
   echo "creating new release"
   echo "$(go version)"
