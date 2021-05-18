@@ -21,6 +21,7 @@ contract University is Node {
     {
         require(!facultyExists(address(faculty)), "University/faculty already registered");
         addChild(address(faculty));
+        assert(_isChild[address(faculty)]);
     }
 
     function facultyExists(address faculty) public view returns (bool) {

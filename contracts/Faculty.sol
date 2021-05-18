@@ -12,7 +12,7 @@ contract Faculty is Node {
 
     event SemesterRegistered(address registar, bytes32 semester);
 
-    event CourseCreated(
+    event CourseAdded(
         address indexed createdBy,
         address indexed courseAddress,
         bytes32 indexed semester
@@ -61,8 +61,10 @@ contract Faculty is Node {
             "Faculty/course already registered"
         );
         addChild(address(course));
+        assert(_isChild[address(course)]);
+
         _coursesBySemester[semester].push(address(course));
-        emit CourseCreated(msg.sender, address(course), semester);
+        emit CourseAdded(msg.sender, address(course), semester);
     }
 
     function courses() public view returns (address[] memory) {
