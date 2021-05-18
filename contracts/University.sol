@@ -9,6 +9,12 @@ import "ct-eth/contracts/node/Node.sol";
  * This contract manage faculties contracts.
  */
 contract University is Node {
+
+    event FacultyAdded(
+        address indexed createdBy,
+        address indexed facultyAddress
+    );
+
     constructor(address[] memory owners, uint8 quorum)
         Node(Role.Inner, owners, quorum)
     {
@@ -22,6 +28,7 @@ contract University is Node {
         require(!facultyExists(address(faculty)), "University/faculty already registered");
         addChild(address(faculty));
         assert(_isChild[address(faculty)]);
+        emit FacultyAdded(msg.sender, address(faculty));
     }
 
     function facultyExists(address faculty) public view returns (bool) {
