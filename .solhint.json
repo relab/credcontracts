@@ -2,16 +2,17 @@
   "extends": "solhint:recommended",
   "plugins": [],
   "rules": {
-    "indent": [
-      "error",
-      4
-    ],
-    "func-order": "off",
-    "bracket-align": "off",
-    "compiler-fixed": "off",
-    "no-simple-event-func-name": "off",
-    "separate-by-one-line-in-contract": "off",
-    "two-lines-top-level-separator": "off",
-    "mark-callable-contracts": "off"
+    "ordering": "warn",
+    "func-visibility": ["warn", { "ignoreConstructors": true }],
+    "no-unused-vars": "error",
+    "const-name-snakecase": "error",
+    "contract-name-camelcase": "error",
+    "event-name-camelcase": "error",
+    "func-name-mixedcase": "error",
+    "func-param-name-mixedcase": "error",
+    "modifier-name-mixedcase": "error",
+    "var-name-mixedcase": "error",
+    "imports-on-top": "error",
+    "compiler-version": "off"
   }
 }

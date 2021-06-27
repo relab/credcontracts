@@ -1,6 +1,6 @@
-var NotaryLib = artifacts.require("Notary");
-var CredentialSumLib = artifacts.require("CredentialSum");
-var Faculty = artifacts.require("FacultyMock");
+const NotaryLib = artifacts.require("Notary");
+const CredentialSumLib = artifacts.require("CredentialSum");
+const Faculty = artifacts.require("FacultyMock");
 
 module.exports = async function (deployer, network, accounts) {
     const [dean, adm] = accounts;

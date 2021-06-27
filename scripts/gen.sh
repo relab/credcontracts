@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 #
-# Generate the go bind ABI code for all bbchain contracts.
+# Generate the go bind ABI code for all contracts.
 #
 # This script is based on: https://github.com/ethersphere/swap-swear-and-swindle/blob/1af77b4a3edf1749956e9b4a718901180d4f4317/abigen/gen.sh
 #
@@ -30,10 +30,10 @@ function generate_bindings() {
     
     local output_dir=${build_dir}/bindings/${package}
     local compiled_json=${build_dir}/compiled_${package}.json
-    # compile the contract allowing imports from ct-eth
+    # compile the contract allowing imports from certree
     solc \
-      ct-eth=${PROJECT_DIR}/node_modules/ct-eth\
-      --allow-paths node_modules/ct-eth/contracts/,\
+      certree=${PROJECT_DIR}/node_modules/certree\
+      --allow-paths node_modules/certree/contracts/,\
       --combined-json=bin,abi,userdoc,devdoc,metadata,bin-runtime\
       --optimize --optimize-runs 200 --evm-version ${EVM_VERSION}\
       ${contract_path}/${contract}.sol > "${compiled_json}"
@@ -43,8 +43,8 @@ function generate_bindings() {
     if [ ${package} == "course" ] ||
        [ ${package} == "faculty" ] ||
        [ ${package} == "node" ]; then
-      libs=( "${PROJECT_DIR}/node_modules/ct-eth/contracts/notary/Notary.sol:Notary"
-             "${PROJECT_DIR}/node_modules/ct-eth/contracts/aggregator/CredentialSum.sol:CredentialSum" )
+      libs=( "${PROJECT_DIR}/node_modules/certree/contracts/notary/Notary.sol:Notary"
+             "${PROJECT_DIR}/node_modules/certree/contracts/aggregator/CredentialSum.sol:CredentialSum" )
       local parsed_json=${build_dir}/parsed_${package}.json
       node ${PROJECT_DIR}/scripts/code.go.js ${package} "${compiled_json}" "${contract_path}/${contract}.sol" ${contract} ${libs[*]} > "${output_dir}/code.go"
     fi
@@ -71,7 +71,7 @@ function check_dependencies() {
 function gen() {
   check_dependencies
   if [ "${1}" == "--libs" ]; then
-    contract_path=${PROJECT_DIR}/node_modules/ct-eth/contracts
+    contract_path=${PROJECT_DIR}/node_modules/certree/contracts
     generate_bindings ${contract_path} "${@:2}"
   else
     contract_path=${PROJECT_DIR}/contracts

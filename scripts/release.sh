@@ -1,6 +1,6 @@
 #!/bin/sh
 #
-# Create a new release on the bbchain-bindings repo.
+# Create a new release in the go-credbindings repo.
 #
 # This script is based on: https://github.com/ethersphere/swap-swear-and-swindle/blob/3897d732c747d8f52f313172190e05086f17c135/scripts/release.sh
 
@@ -30,7 +30,7 @@ function release() {
   # Build setup
   local build_dir="${PROJECT_DIR}/build"
   local bindings_dir="$build_dir/bindings"
-  local release_repo_dir="$build_dir/bbchain-bindings"
+  local release_repo_dir="$build_dir/go-credbindings"
 
   # Ensure build directory exists (it should be created by the contract compilation)
   [ -d "$build_dir" ] || { echo "$build_dir not found. Please run `npm run abigen` to generate the bindings."; exit 1; }
@@ -43,7 +43,7 @@ function release() {
   rm -rf "${release_repo_dir}"
 
   # Clone the repo.
-  git clone "git@github.com:relab/bbchain-bindings.git"
+  git clone "git@github.com:relab/go-credbindings.git"
   cd "${release_repo_dir}"
 
   # Determine major package version from tag.
@@ -76,7 +76,7 @@ function release() {
     cd "${new_version_dir}"
 
     echo "init go module in ${new_version_dir}"
-    go mod init "github.com/relab/bbchain-bindings/v${major_version}"
+    go mod init "github.com/relab/go-credbindings/v${major_version}"
 
     echo "fetching 'go-ethereum@${geth_version}' on base ${new_version_dir}"
     GO111MODULE=on go get "github.com/ethereum/go-ethereum@${geth_version}"

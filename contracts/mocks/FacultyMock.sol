@@ -6,9 +6,7 @@ import "../Faculty.sol";
 contract FacultyMock is Faculty {
     uint256 private _balance;
 
-    constructor(address[] memory owners, uint8 quorum)
-        Faculty(owners, quorum)
-    {
+    constructor(address[] memory owners, uint8 quorum) Faculty(owners, quorum) {
         // solhint-disable-previous-line no-empty-blocks
     }
 

@@ -1,7 +1,7 @@
 {
-  "name": "bbchain-dapp",
+  "name": "dapp",
   "version": "0.0.1",
-  "description": "BBChain DApp js example",
+  "description": "DApp js example",
   "directories": {
     "test": "test"
   },
@@ -13,7 +13,7 @@
     "dev": "webpack-dev-server"
   },
   "author": "Rodrigo Q. Saramago",
-  "license": "GPL-3.0-only",
+  "license": "MIT",
   "dependencies": {
     "@metamask/detect-provider": "^1.2.0",
     "jquery": "^3.5.1",

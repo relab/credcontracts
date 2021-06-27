@@ -1,6 +1,4 @@
-// https://github.com/chaijs/chai/pull/868
-// Using Should style globally
-require('chai/register-should');
+require("chai/register-should");
 
 module.exports = {
     networks: {
@@ -20,21 +18,21 @@ module.exports = {
             network_id: "*", // eslint-disable-line camelcase
             accounts: 5,
             defaultEtherBalance: 50
-        },
+        }
     },
 
     mocha: {
         // timeout: 100000,
         useColors: true,
-        reporter: 'eth-gas-reporter',
+        reporter: "eth-gas-reporter",
         reporterOptions: {
-            currency: 'USD', // NOK, EUR
+            currency: "USD", // NOK, EUR
             src: "contracts",
             showMethodSig: true,
             outputFile: "gas-report.txt",
             onlyCalledMethods: true,
             showTimeSpent: true,
-            excludeContracts: ['Migrations']
+            excludeContracts: ["Migrations"]
         }
     },
 
@@ -42,7 +40,7 @@ module.exports = {
 
     compilers: {
         solc: {
-            version: '0.8.2',
+            version: "0.8.5",
             settings: {
                 optimizer: {
                     enabled: true,
@@ -61,7 +59,7 @@ module.exports = {
                             "evm.bytecode.sourceMap",
                             "evm.gasEstimates"
                         ],
-                        "": ["ast"],
+                        "": ["ast"]
                     }
                 },
                 evmVersion: "istanbul"

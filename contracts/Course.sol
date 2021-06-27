@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0;
 
-import "ct-eth/contracts/node/Node.sol";
+import "certree/contracts/node/Node.sol";
 
 /**
  * @title Academic Course
@@ -27,9 +27,7 @@ contract Course is Node {
     /**
      * @dev Constructor creates a Course contract
      */
-    constructor(address[] memory owners, uint8 quorum)
-        Node(Role.Leaf, owners, quorum)
-    {
+    constructor(address[] memory owners, uint8 quorum) Node(Role.Leaf, owners, quorum) {
         // solhint-disable-previous-line no-empty-blocks
     }
 
@@ -68,10 +66,7 @@ contract Course is Node {
      * is not maintained.
      * @param student the address of the student to be removed.
      */
-    function _removeStudent(address student)
-        private
-        registeredStudent(student)
-    {
+    function _removeStudent(address student) private registeredStudent(student) {
         require(_students.length > 0);
 
         uint256 index = _enrolledStudents[student].index;
@@ -99,11 +94,7 @@ contract Course is Node {
         _removeStudent(msg.sender);
     }
 
-    function registerExam(address student, bytes32 digest)
-        public
-        onlyOwner
-        registeredStudent(student)
-    {
+    function registerExam(address student, bytes32 digest) public onlyOwner registeredStudent(student) {
         super.registerCredential(student, digest, new address[](0));
     }
 }

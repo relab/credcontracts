@@ -1,8 +1,8 @@
-# BBChain Contracts
+# Academic Credential Contracts
 
-This repository contains the contracts that implements the credential tree for academic certification described [here](https://github.com/relab/ct-eth).
-
-You can read more about how it works in the [credential transparency](https://github.com/relab/credential-transparency-papers/tree/master/digital-diploma) paper repository.
+This repository contains the contracts that implements the certification tree for an academic certification process.
+It extends the contracts available [here](https://github.com/relab/certree).
+A evaluation of this implementation can be found in [this](https://github.com/relab/credbench) repository.
 
 ## Installing Dependencies
 
